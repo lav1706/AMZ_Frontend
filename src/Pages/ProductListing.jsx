@@ -3,12 +3,14 @@ import {Link} from "react-router-dom"
 import {useProductContext} from "./../context/ProductContext"
 import { useCart } from "../context/CartContext";
 import { useWishlist } from "../context/WishListContext";
+import { useSearchContext } from "../context/SearchContext";
 const ProductListing = () => {
   const [sortOption, setSortOption] = useState(""); 
   const [selectedCategory, setSelectedCategory] = useState("All"); 
 const {products}=useProductContext()
 const { addToCart}=useCart()
 const {addToWishlist}=useWishlist()
+const {searchTerm}=useSearchContext()
  
 
   const handleSortChange = (e) => {
@@ -18,8 +20,10 @@ const {addToWishlist}=useWishlist()
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
   };
-
-  const sortedProducts = products
+const filterProduct= searchTerm? products.filter((item) =>
+  item.name.toLowerCase().includes(searchTerm.toLowerCase())
+) : products
+  const sortedProducts = filterProduct
     .filter((product) => {
       return selectedCategory==="All" ? products: selectedCategory===product.category
     })

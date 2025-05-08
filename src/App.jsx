@@ -13,6 +13,7 @@ import  { ProductWrapper } from './context/ProductContext'
 import { CartProvider } from './context/CartContext'
 import { WishListProvider } from './context/WishListContext'
 import { AddressProvider } from './context/AddressContext'
+import { SearchProvider } from './context/SearchContext'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
       <CartProvider>
         <WishListProvider>
           <AddressProvider>
+            <SearchProvider>
       <Router>
       <Nav/>
       <Routes>
@@ -36,6 +38,7 @@ function App() {
       </Routes>
       <Footer/>
       </Router>
+      </SearchProvider>
       </AddressProvider>
       </WishListProvider>
       </CartProvider>

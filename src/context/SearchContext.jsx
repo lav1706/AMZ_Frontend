@@ -1,24 +1,24 @@
-import {  createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { useProductContext } from "./ProductContext";
 
-const SearchContext=createContext()
+const SearchContext = createContext();
 
-export const useSearchContext=useContext(SearchContext)
+export const useSearchContext = () => useContext(SearchContext);
 
-export const SearchProvider=({children})=>{
-    const [searchTerm,setSearchTerm]=useState("")
-    const{products}=useProductContext()
+export const SearchProvider = ({ children }) => {
 
-    const handleChange=(e)=>{
-        setSearchTerm(e.target.value)
-        const resultProduct=products.some((pro)=>pro.name===searchTerm)
-        return resultProduct
-    }
-    
+  const [searchTerm, setSearchTerm] = useState("");
+  const {products}=useProductContext()
 
-    return(
-        <SearchContext.Provider value={{searchTerm,handleChange}}>
-            {children}
-        </SearchContext.Provider>
-    )
-}
+  const handleChange = (e) => {
+    const value=e.target.value
+    setSearchTerm(value);
+  
+  };
+
+  return (
+    <SearchContext.Provider value={{ searchTerm, handleChange  }}>
+      {children}
+    </SearchContext.Provider>
+  );
+};

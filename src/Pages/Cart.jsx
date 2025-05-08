@@ -9,10 +9,7 @@ const Cart = () => {
   const { addresses,
     selectedAddress,
     selectedAddressId,
-    addAddress,
-    editAddress,
-    deleteAddress,
-    selectAddress, } = useAddress();
+    } = useAddress();
 
   
   const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
