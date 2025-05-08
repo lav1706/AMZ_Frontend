@@ -1,23 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import { useCart } from "../context/CartContext";
 import { useWishlist } from "../context/WishListContext";
 import { useAddress } from "../context/AddressContext";
+import { Link } from "react-router-dom";
+import { useUserContext } from "../context/UserContext";
 
 const Cart = () => {
   const { cart, removeFromCart, updateQuantity } = useCart();
   const { addToWishlist } = useWishlist();
-  const { addresses,
-    selectedAddress,
-    selectedAddressId,
-    } = useAddress();
+  const { addresses, selectedAddress, selectedAddressId, selectAddress } = useAddress();
+  const { handleClick } = useUserContext();
 
-  
   const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-  
   const handleAddressChange = (e) => {
-    
-    selectedAddress(e.target.value);
+    const addressId = Number(e.target.value)
+    selectAddress(addressId);  
   };
 
   return (
@@ -55,12 +53,15 @@ const Cart = () => {
               <h5>Price Details</h5>
               <p>Total Items: {cart.length}</p>
               <p>Total Price: ${totalPrice}</p>
-              <button className="btn btn-success">Checkout</button>
+              <button className="btn btn-success" onClick={() => handleClick()}>Checkout</button>
             </div>
             <div className="card mt-3 p-3">
               <h5>Delivery Address</h5>
               {addresses.length === 0 ? (
-                <p>No addresses available. Please add one.</p>
+                <div>
+                  <p>No addresses available. Please add one.</p>
+                  <Link to="/user">Add Address</Link>
+                </div>
               ) : (
                 <div>
                   <label htmlFor="addressDropdown">Select Address:</label>
@@ -73,7 +74,7 @@ const Cart = () => {
                     <option value="" disabled>Select an address</option>
                     {addresses.map((address) => (
                       <option key={address.id} value={address.id}>
-                        {address.street}, {address.city}, {address.zipcode}
+                        {address.add}
                       </option>
                     ))}
                   </select>

@@ -49,6 +49,8 @@ const Nav = () => {
               <Link to="/user">
               <i className="bi bi-person fs-4"></i>
               </Link>
+              <Link to="/product">
+              <i className="bi bi-shop fs-4"></i></Link>
             </div>
           </div>
         </div>

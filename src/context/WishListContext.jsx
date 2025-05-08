@@ -9,14 +9,18 @@ export const WishListProvider = ({ children }) => {
   const { addToCart } = useCart();
 
   const addToWishlist = (product) => {
-    setWishlist(prev => prev.some(p => p.id === product.id) ? prev : [...prev, product]);
+    setWishlist(prev => prev.some(p => p.id === product.id) ? prev : [...prev, product])
+    alert("Product Added to Wishlist")
   };
 
-  const removeFromWishlist = (id) => setWishlist(prev => prev.filter(p => p.id !== id));
+  const removeFromWishlist = (id) =>{ setWishlist(prev => prev.filter(p => p.id !== id))
+    alert("Product Remove to Wishlist")
+  }
 
   const moveToCart = (product) => {
     removeFromWishlist(product.id);
     addToCart(product);
+    alert("Product Move to Cart")
   };
 
   return (

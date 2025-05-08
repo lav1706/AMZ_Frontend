@@ -39,7 +39,9 @@ export const AddressProvider = ({ children }) => {
   };
 
   const selectedAddress = addresses.find((a) => a.id === selectedAddressId) || null;
-
+const clearAdress=()=>{
+  setSelectedAddressId(null)
+}
   return (
     <AddressContext.Provider
       value={{
@@ -50,6 +52,7 @@ export const AddressProvider = ({ children }) => {
         deleteAddress,
         selectedAddressId,
         selectAddress,
+        clearAdress
       }}
     >
       {children}

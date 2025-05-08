@@ -22,7 +22,7 @@ const {searchTerm}=useSearchContext()
   };
 const filterProduct= searchTerm? products.filter((item) =>
   item.name.toLowerCase().includes(searchTerm.toLowerCase())
-) : products
+) : products 
   const sortedProducts = filterProduct
     .filter((product) => {
       return selectedCategory==="All" ? products: selectedCategory===product.category
