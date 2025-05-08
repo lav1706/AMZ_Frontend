@@ -29,12 +29,11 @@ const filterProduct= searchTerm? products.filter((item) =>
     })
     .sort((a, b) => {
       if (sortOption === "lowToHigh") {
-        return a.price - b.price; 
+        return a.price - b.price;
+      } else if (sortOption === "highToLow") {
+        return b.price - a.price;
       }
-      if (sortOption === "highToLow") {
-        return b.price - a.price; 
-      }
-      return 0;
+      return 0; 
     });
 
   const clearFilters = () => {
@@ -75,6 +74,7 @@ const filterProduct= searchTerm? products.filter((item) =>
                         name="category"
                         value="Men"
                         onChange={handleCategoryChange}
+                      
                       />
                       Men
                     </label>
@@ -99,6 +99,7 @@ const filterProduct= searchTerm? products.filter((item) =>
                         name="sort"
                         value="lowToHigh"
                         onChange={handleSortChange}
+                        checked={sortOption === "lowToHigh"} 
                       />
                       Low to High
                     </label>
@@ -109,6 +110,7 @@ const filterProduct= searchTerm? products.filter((item) =>
                         name="sort"
                         value="highToLow"
                         onChange={handleSortChange}
+                        checked={sortOption === "highToLow"}
                       />
                       High to Low
                     </label>

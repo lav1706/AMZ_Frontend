@@ -3,6 +3,7 @@ import { useCart } from "../context/CartContext";
 import { useWishlist } from "../context/WishListContext";
 import { useSearchContext } from "../context/SearchContext";
 
+
 const Nav = () => {
   const {cart}=useCart()
   const {wishlist}=useWishlist()
@@ -21,6 +22,7 @@ const Nav = () => {
                 onChange={handleChange}
                 placeholder="Search..."
                 className="form-control border-0 shadow-none bg-transparent p-1"
+
               />
               <button className="btn p-0 shadow-none border-0 bg-transparent">
                <i className="bi bi-search" onClick={()=>searchProduct(searchTerm)} ></i> 
