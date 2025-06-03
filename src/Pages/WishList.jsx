@@ -2,7 +2,7 @@ import React from "react";
 import { useWishlist } from "../context/WishListContext";
 
 const WishList = () => {
-   const {wishlist, moveToCart,removeFromWishlist}=useWishlist()
+  const { wishlist, moveToCart, removeFromWishlist } = useWishlist();
   return (
     <div className="container mt-4">
       <h2>Wishlist</h2>
@@ -10,15 +10,29 @@ const WishList = () => {
         <p>Your wishlist is empty.</p>
       ) : (
         <div className="row">
-          {wishlist.map((item) => (
+          {wishlist?.map((item) => (
             <div key={item.id} className="col-md-4">
               <div className="card mb-3">
-                <img src={item.image} className="card-img-top" alt={item.name} />
+                <img
+                  src={item.productId.image}
+                  className="card-img-top"
+                  alt={item.name}
+                />
                 <div className="card-body">
-                  <h5>{item.name}</h5>
-                  <p>${item.price}</p>
-                  <button onClick={() => moveToCart(item)} className="btn btn-primary btn-sm">Add to Cart</button>
-                  <button onClick={() => removeFromWishlist(item.id)} className="btn btn-danger btn-sm ms-2">Remove</button>
+                  <h5>{item.productId.name}</h5>
+                  <p>${item.productId.price}</p>
+                  <button
+                    onClick={() => moveToCart(item)}
+                    className="btn btn-primary btn-sm"
+                  >
+                    Add to Cart
+                  </button>
+                  <button
+                    onClick={() => removeFromWishlist(item)}
+                    className="btn btn-danger btn-sm ms-2"
+                  >
+                    Remove
+                  </button>
                 </div>
               </div>
             </div>
