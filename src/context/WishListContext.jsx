@@ -9,7 +9,7 @@ export const WishListProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
   const { addToCart } = useCart();
   const userId = "68263903bff831935e17c3c7";
-  const api = `http://localhost:3000/wishlist/${userId}`;
+  const api = `https://amz-backend-1.onrender.com/wishlist/${userId}`;
 
   useEffect(() => {
     const fetchWishlist = async () => {

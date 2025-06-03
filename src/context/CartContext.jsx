@@ -6,7 +6,7 @@ export const useCart = () => useContext(CartContext);
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState();
   const userId = "68263903bff831935e17c3c7";
-  const api = `http://localhost:3000/cart/${userId}`;
+  const api = `https://amz-backend-1.onrender.com/cart/${userId}`;
 
   useEffect(() => {
     const fetchCart = async () => {
@@ -80,8 +80,8 @@ export const CartProvider = ({ children }) => {
 
     const url =
       delta === 1
-        ? `http://localhost:3000/cart/increase/${userId}/${cartItemId}`
-        : `http://localhost:3000/cart/decrease/${userId}/${cartItemId}`;
+        ? `https://amz-backend-1.onrender.com/cart/increase/${userId}/${cartItemId}`
+        : `https://amz-backend-1.onrender.com/cart/decrease/${userId}/${cartItemId}`;
 
     try {
       const res = await fetch(url, {

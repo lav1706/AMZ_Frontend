@@ -7,7 +7,7 @@ export const AddressProvider = ({ children }) => {
   const [addresses, setAddresses] = useState([]);
   const [selectedAddressId, setSelectedAddressId] = useState(null);
   const userId = "68263903bff831935e17c3c7";
-  const api = `http://localhost:3000/add/${userId}`;
+  const api = `https://amz-backend-1.onrender.com/add/${userId}`;
 
   useEffect(() => {
     const fetchAddresses = async () => {
