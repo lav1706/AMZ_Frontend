@@ -74,7 +74,7 @@ frontend/
 Bootstrap 5 used for layout, spacing, and components
 Fully responsive design (mobile, tablet, desktop)
 Bootstrap Icons for UI icons
-
+ ```
  -✅ Features
  -✅ Product listing and filtering
  -✅ Product detail view
@@ -83,7 +83,7 @@ Bootstrap Icons for UI icons
  -✅ Manage user profile and addresses
  -✅ Fully responsive layout
  -✅ State managed with React Context API
-
+```
 
 ⚙️ How to Run Locally
 Follow these steps to set up and run the frontend on your local machine:
