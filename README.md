@@ -15,8 +15,33 @@ This is the frontend application for an e-commerce platform, built using **React
 
 ---
 
-<pre lang="markdown"> ### 📁 Project Structure ```text frontend/ ├── public/ ├── src/ │ ├── Component/ │ │ ├── Nav.jsx │ │ └── Footer.jsx │ ├── context/ │ │ ├── AddressContext.jsx │ │ ├── CartContext.jsx │ │ ├── ProductContext.jsx │ │ ├── SearchContext.jsx │ │ ├── UserContext.jsx │ │ └── WishListContext.jsx │ ├── Pages/ │ │ ├── HomePage.jsx │ │ ├── ProductListing.jsx │ │ ├── ProductDetails.jsx │ │ ├── UserProfile.jsx │ │ ├── Cart.jsx │ │ └── WishList.jsx │ ├── App.jsx │ └── main.jsx ``` </pre>
+## 📁 Project Structure
 
+```
+frontend/
+│
+├── public/
+├── src/
+│   ├── Component/
+│   │   ├── Nav.jsx
+│   │   └── Footer.jsx
+│   ├── context/
+│   │   ├── AddressContext.jsx
+│   │   ├── CartContext.jsx
+│   │   ├── ProductContext.jsx
+│   │   ├── SearchContext.jsx
+│   │   ├── UserContext.jsx
+│   │   └── WishListContext.jsx
+│   ├── Pages/
+│   │   ├── HomePage.jsx
+│   │   ├── ProductListing.jsx
+│   │   ├── ProductDetails.jsx
+│   │   ├── UserProfile.jsx
+│   │   ├── Cart.jsx
+│   │   └── WishList.jsx
+│   └── App.jsx
+|   └── main.jsx
+```
 
 ---
 
