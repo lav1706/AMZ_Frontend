@@ -8,7 +8,7 @@ export const ProductWrapper = ({ children }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch("http://localhost:3000/product");
+        const res = await fetch("https://amz-backend-1.onrender.com/product");
         const data = await res.json();
         setProducts(data);
       } catch (error) {

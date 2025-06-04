@@ -37,13 +37,16 @@ export const UserWrapper = ({ children }) => {
     try {
       console.log("newOrder being sent:", JSON.stringify(newOrder, null, 2));
 
-      const res = await fetch(`http://localhost:3000/order/${userId}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newOrder),
-      });
+      const res = await fetch(
+        `https://amz-backend-1.onrender.com/order/${userId}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newOrder),
+        }
+      );
 
       const updatedUser = await res.json();
 
