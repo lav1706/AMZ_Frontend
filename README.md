@@ -1,4 +1,4 @@
-# 🛍️ React E-commerce Frontend
+# 🛍️ React E-commerce Frontend AMZ
 
 This is the frontend application for an e-commerce platform, built using **React.js**, **React Router**, and **Bootstrap**. It provides a clean, UI for users to browse products, view product details, manage a shopping cart and wishlist, and update their address information.
 
