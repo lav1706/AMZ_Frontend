@@ -55,7 +55,9 @@ export const UserWrapper = ({ children }) => {
       }
       const fetchUser = async () => {
         try {
-          const res = await fetch(`http://localhost:3000/user/${userId}`);
+          const res = await fetch(
+            `https://amz-backend-1.onrender.com/user/${userId}`
+          );
           const data = await res.json();
           setUser(data);
           setOrderHistory(data?.order);
@@ -77,7 +79,9 @@ export const UserWrapper = ({ children }) => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/user/${userId}`);
+        const res = await fetch(
+          `https://amz-backend-1.onrender.com/user/${userId}`
+        );
         const data = await res.json();
         setUser(data);
         setOrderHistory(data?.order);

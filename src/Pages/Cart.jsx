@@ -117,6 +117,7 @@ const Cart = () => {
                       </option>
                     ))}
                   </select>
+                  <Link to="/user">Add Address</Link>
                 </div>
               )}
             </div>
