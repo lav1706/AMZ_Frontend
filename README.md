@@ -1,12 +1,108 @@
-# React + Vite
+# 🛍️ React E-commerce Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend application for an e-commerce platform, built using **React.js**, **React Router**, and **Bootstrap**. It provides a clean, UI for users to browse products, view product details, manage a shopping cart and wishlist, and update their address information.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## Expanding the ESLint configuration
+- **React.js** – Frontend UI framework  
+- **React Router DOM** – Client-side routing  
+- **Bootstrap 5** – Styling and layout  
+- **Bootstrap Icons** – Icon library  
+- **React Context API** – State management  
+- **npm** – Package manager  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📁 Project Structure
+
+frontend/
+│
+├── public/
+├── src/
+│ ├── Component/
+│ │ ├── Nav.jsx
+│ │ └── Footer.jsx
+│ ├── context/
+│ │ ├── AddressContext.jsx
+│ │ ├── CartContext.jsx
+│ │ ├── ProductContext.jsx
+│ │ ├── SearchContext.jsx
+│ │ ├── UserContext.jsx
+│ │ └── WishListContext.jsx
+│ ├── Pages/
+│ │ ├── HomePage.jsx
+│ │ ├── ProductListing.jsx
+│ │ ├── ProductDetails.jsx
+│ │ ├── UserProfile.jsx
+│ │ ├── Cart.jsx
+│ │ └── WishList.jsx
+│ └── App.jsx
+| └── main.jsx
+
+
+---
+
+## 🌐 Available Routes
+
+| Route               | Component         | Description                          |
+|--------------------|------------------|--------------------------------------|
+| `/`                | HomePage         | Landing page                         |
+| `/product`         | ProductListing   | List all products                    |
+| `/product/:proId`  | ProductDetails   | Product detail page                  |
+| `/user`            | UserProfile      | User info and address management     |
+| `/user/cart`       | Cart             | Shopping cart                        |
+| `/user/wishlist`   | WishList         | Wishlist page                        |
+
+---
+
+## 🧠 Context API Usage
+
+| Context            | Purpose                                 |
+|--------------------|------------------------------------------|
+| `ProductContext`   | Manages product data                    |
+| `CartContext`      | Handles shopping cart state             |
+| `WishListContext`  | Handles wishlist items                  |
+| `AddressContext`   | Manages user addresses                  |
+| `SearchContext`    | Manages search and filter queries       |
+| `UserContext`      | Stores and provides user data           |
+
+---
+## 🎨 Styling
+Bootstrap 5 used for layout, spacing, and components
+Fully responsive design (mobile, tablet, desktop)
+Bootstrap Icons for UI icons
+
+# ✅ Features
+# ✅ Product listing and filtering
+# ✅ Product detail view
+# ✅ Add to cart and wishlist
+# ✅ View and update cart
+# ✅ Manage user profile and addresses
+# ✅ Fully responsive layout
+# ✅ State managed with React Context API
+
+
+⚙️ How to Run Locally
+Follow these steps to set up and run the frontend on your local machine:
+
+1. Clone the Repository
+bash
+Copy
+Edit
+git clone https://github.com/lav1706/AMZ_Frontend.git
+cd frontend
+2. Install Dependencies
+Make sure you have Node.js and npm installed.
+
+bash
+Copy
+Edit
+npm install
+3. Start the Development Server
+bash
+Copy
+Edit
+npm start
+This will run the app in development mode.
