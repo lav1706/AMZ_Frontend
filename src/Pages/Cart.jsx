@@ -37,9 +37,11 @@ const Cart = () => {
               <div key={item._id} className="card mb-3">
                 <div className="card-body d-flex">
                   <img
+                    className="object-fit-cover"
                     src={item.productId.image}
-                    width="100"
+                    width="200"
                     alt={item.productId.name}
+                    style={{ height: "200px" }}
                   />
                   <div className="ms-3">
                     <h5>{item.productId.name}</h5>

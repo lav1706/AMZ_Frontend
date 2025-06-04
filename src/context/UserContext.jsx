@@ -7,63 +7,74 @@ export const useUserContext = () => useContext(UserContext);
 
 export const UserWrapper = ({ children }) => {
   const { cart, clearCart } = useCart();
-  const { selectedAddress, clearAdress } = useAddress();
+  const { selectedAddress } = useAddress();
 
   const [orderHistory, setOrderHistory] = useState([]);
   const [user, setUser] = useState();
   const userId = "68263903bff831935e17c3c7";
-  console.log(selectedAddress);
+
   const handleClick = async () => {
-    console.log(cart);
-    console.log(selectedAddress);
-    if (cart.length > 0 && selectedAddress) {
-      const newOrder = {
-        cart: cart,
-        address: selectedAddress,
-        total: cart.reduce(
-          (total, item) => item.quantity * item.price + total,
-          0
-        ),
-        date: new Date().toLocaleDateString(),
-      };
+    if (!Array.isArray(cart) || cart.length === 0) {
+      return alert("Cart is empty.");
+    }
+    if (!selectedAddress) {
+      return alert("Please select a delivery address.");
+    }
 
-      try {
-        const res = await fetch(
-          `https://amz-backend-1.onrender.com/order/${userId}`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(newOrder),
-          }
-        );
+    const newOrder = {
+      cart: cart.map((item) => ({
+        productId: item.productId._id,
+        quantity: item.quantity,
+      })),
+      address: selectedAddress,
+      total: cart.reduce(
+        (total, item) => item.quantity * item.price + total,
+        0
+      ),
+      date: new Date().toLocaleDateString(),
+    };
 
-        if (!res.ok) {
-          throw new Error("Failed to place order");
-        }
+    try {
+      console.log("newOrder being sent:", JSON.stringify(newOrder, null, 2));
 
-        const updatedUser = await res.json();
-        setUser(updatedUser);
-        setOrderHistory(updatedUser?.order);
-        alert("Product will be delivered soon...");
-        clearCart();
-        clearAdress();
-      } catch (err) {
-        console.error("Error placing order:", err);
-        alert("Order failed. Please try again.");
+      const res = await fetch(`http://localhost:3000/order/${userId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newOrder),
+      });
+
+      const updatedUser = await res.json();
+
+      if (!res.ok) {
+        throw new Error(updatedUser?.message || "Order failed");
       }
-    } else {
-      alert("Cart or address is missing.");
+      const fetchUser = async () => {
+        try {
+          const res = await fetch(`http://localhost:3000/user/${userId}`);
+          const data = await res.json();
+          setUser(data);
+          setOrderHistory(data?.order);
+        } catch (err) {
+          console.error("Error fetching users:", err);
+        }
+      };
+      setUser(updatedUser);
+      setOrderHistory(updatedUser?.order);
+      alert("Product will be delivered soon...");
+      await fetchUser();
+      clearCart();
+    } catch (err) {
+      console.error("Error placing order:", err);
+      alert("Order failed. Please try again.");
     }
   };
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await fetch(
-          `https://amz-backend-1.onrender.com/user/${userId}`
-        );
+        const res = await fetch(`http://localhost:3000/user/${userId}`);
         const data = await res.json();
         setUser(data);
         setOrderHistory(data?.order);

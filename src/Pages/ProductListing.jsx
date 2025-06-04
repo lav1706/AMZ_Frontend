@@ -49,12 +49,17 @@ const ProductListing = () => {
       <div className="container mt-4">
         <div className="row">
           <div className="col-md-3">
-            <div className="card">
-              <div className="card-header">
-                <h3>Filter</h3>
+            <div className="card h-100" style={{ minHeight: "100vh" }}>
+              <div className="card-header bg-dark text-white">
+                <h3 className="mb-0">Filter</h3>
               </div>
               <div className="card-body">
-                <div className="mb-3">
+                <div className="d-flex justify-content-between mb-4">
+                  <button className="btn btn-primary" onClick={clearFilters}>
+                    Clear Filters
+                  </button>
+                </div>
+                <div className="mb-4">
                   <h6>Filter by Category</h6>
                   <div>
                     <label>
@@ -89,6 +94,7 @@ const ProductListing = () => {
                     </label>
                   </div>
                 </div>
+                <hr className="my-4" />
                 <div className="mb-3">
                   <h6>Sort by Price</h6>
                   <div>
@@ -99,7 +105,7 @@ const ProductListing = () => {
                         value="lowToHigh"
                         onChange={handleSortChange}
                         checked={sortOption === "lowToHigh"}
-                      />
+                      />{" "}
                       Low to High
                     </label>
                     <br />
@@ -114,10 +120,6 @@ const ProductListing = () => {
                       High to Low
                     </label>
                   </div>
-
-                  <button className="btn btn-secondary" onClick={clearFilters}>
-                    Clear Filters
-                  </button>
                 </div>
               </div>
             </div>
@@ -126,16 +128,17 @@ const ProductListing = () => {
           <div className="col-md-9">
             <div className="row">
               {sortedProducts.map((product) => (
-                <div key={product.id} className="col-md-4 col-sm-6 mb-4">
+                <div key={product._id} className="col-md-4 col-sm-6 mb-4">
                   <div className="card" style={{ height: "100%" }}>
                     <img
                       src={product.image}
-                      className="card-img-top"
+                      className="card-img-top object-fit-contain"
                       alt={product.name}
+                      style={{ height: "200px" }}
                     />
                     <div className="card-body">
                       <h5 className="card-title">
-                        <Link to={`/product/${product.id}`}>
+                        <Link to={`/product/${product._id}`}>
                           {product.name}
                         </Link>
                       </h5>
@@ -149,7 +152,7 @@ const ProductListing = () => {
                       </p>
                       <div className="d-flex justify-content-between">
                         <button
-                          className="btn btn-primary"
+                          className="btn btn-primary mx-2"
                           onClick={() => addToCart(product)}
                         >
                           Add to Cart

@@ -1,13 +1,14 @@
-import { useParams,Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useProductContext } from "../context/ProductContext";
 import { useCart } from "../context/CartContext";
+import { useWishlist } from "../context/WishListContext";
 
 const ProductDetails = () => {
-   const {products}=useProductContext()
-   const {addToCart}=useCart()
-
-  const { proId } = useParams();
-  const productId = parseInt(proId); 
+  const { products } = useProductContext();
+  const { addToWishlist } = useWishlist();
+  const { addToCart } = useCart();
+  const { _id } = useParams();
+  const productId = _id;
   const selectedProduct = products.find((pro) => pro.id === productId);
 
   if (!selectedProduct) {
@@ -16,8 +17,10 @@ const ProductDetails = () => {
 
   return (
     <div className="container mt-4">
-       <Link className="btn btn-primary" to="/product">Go Back</Link>
-      <div className="row">
+      <Link className="btn btn-primary m-4" to="/product">
+        Go Back
+      </Link>
+      <div className="row m-4">
         <div className="col-md-5">
           <img
             src={selectedProduct.image}
@@ -40,7 +43,7 @@ const ProductDetails = () => {
           </button>
           <button
             className="btn btn-outline-danger"
-            onClick={() => alert("Added to Wishlist")}
+            onClick={() => addToWishlist(selectedProduct)}
           >
             Add to Wishlist
           </button>

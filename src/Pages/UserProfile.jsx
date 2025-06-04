@@ -21,7 +21,7 @@ const UserProfile = () => {
       [e.target.name]: e.target.value,
     }));
   };
-  console.log(user);
+  console.log(user?.data?.order);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -59,9 +59,9 @@ const UserProfile = () => {
       <div className="mb-3">
         {user ? (
           <>
-            <strong>Name:</strong> {user?.data.name}
+            <strong>Name:</strong> {user?.data?.name}
             <br />
-            <strong>Email:</strong> {user?.data.email}
+            <strong>Email:</strong> {user?.data?.email}
             <br />
           </>
         ) : (
@@ -151,6 +151,7 @@ const UserProfile = () => {
       </div>
       <div>
         <h4>Order History</h4>
+
         {user?.data?.order && user.data.order.length > 0 ? (
           user.data.order.map((order, index) => (
             <div key={order._id} className="card mb-3 shadow-sm">
@@ -168,7 +169,7 @@ const UserProfile = () => {
 
                 {order.address ? (
                   <p className="card-text">
-                    <strong>Address:</strong> {order.address.city},
+                    <strong>Address:</strong> {order.address.city},{" "}
                     {order.address.pincode}, {order.address.state}
                   </p>
                 ) : (

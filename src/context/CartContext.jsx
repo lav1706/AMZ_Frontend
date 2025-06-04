@@ -6,7 +6,7 @@ export const useCart = () => useContext(CartContext);
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState();
   const userId = "68263903bff831935e17c3c7";
-  const api = `https://amz-backend-1.onrender.com/cart/${userId}`;
+  const api = `http://localhost:3000/cart/${userId}`;
 
   useEffect(() => {
     const fetchCart = async () => {

@@ -1,12 +1,11 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
- const ProductContext= createContext()
- export const useProductContext = () => useContext(ProductContext);
+const ProductContext = createContext();
+export const useProductContext = () => useContext(ProductContext);
 
-
-  export const ProductWrapper=({children})=>{
-    const [products,setProducts]=useState([])
- useEffect(() => {
+export const ProductWrapper = ({ children }) => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
     const fetchProducts = async () => {
       try {
         const res = await fetch("http://localhost:3000/product");
@@ -19,13 +18,11 @@ import { createContext, useContext, useEffect, useState } from "react";
 
     fetchProducts();
   }, []);
-    return(
-      <>
-    
-       <ProductContext.Provider value={{products}}>
-      {children}
-       </ProductContext.Provider>
-      
-     </>
-    )
-  }
+  return (
+    <>
+      <ProductContext.Provider value={{ products }}>
+        {children}
+      </ProductContext.Provider>
+    </>
+  );
+};
