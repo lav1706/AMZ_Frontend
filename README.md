@@ -74,14 +74,14 @@ Bootstrap 5 used for layout, spacing, and components
 Fully responsive design (mobile, tablet, desktop)
 Bootstrap Icons for UI icons
 
- ✅ Features
- ✅ Product listing and filtering
- ✅ Product detail view
- ✅ Add to cart and wishlist
- ✅ View and update cart
- ✅ Manage user profile and addresses
- ✅ Fully responsive layout
- ✅ State managed with React Context API
+ -✅ Features
+ -✅ Product listing and filtering
+ -✅ Product detail view
+ -✅ Add to cart and wishlist
+ -✅ View and update cart
+ -✅ Manage user profile and addresses
+ -✅ Fully responsive layout
+ -✅ State managed with React Context API
 
 
 ⚙️ How to Run Locally
@@ -96,13 +96,8 @@ cd frontend
 2. Install Dependencies
 Make sure you have Node.js and npm installed.
 
-bash
-Copy
-Edit
 npm install
-3. Start the Development Server
-bash
-Copy
-Edit
+4. Start the Development Server
+
 npm start
 This will run the app in development mode.
