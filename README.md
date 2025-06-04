@@ -74,14 +74,14 @@ Bootstrap 5 used for layout, spacing, and components
 Fully responsive design (mobile, tablet, desktop)
 Bootstrap Icons for UI icons
 
-# ✅ Features
-# ✅ Product listing and filtering
-# ✅ Product detail view
-# ✅ Add to cart and wishlist
-# ✅ View and update cart
-# ✅ Manage user profile and addresses
-# ✅ Fully responsive layout
-# ✅ State managed with React Context API
+ ✅ Features
+ ✅ Product listing and filtering
+ ✅ Product detail view
+ ✅ Add to cart and wishlist
+ ✅ View and update cart
+ ✅ Manage user profile and addresses
+ ✅ Fully responsive layout
+ ✅ State managed with React Context API
 
 
 ⚙️ How to Run Locally
